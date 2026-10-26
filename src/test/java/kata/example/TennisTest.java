@@ -15,7 +15,7 @@ class TennisTest {
         t.set(30, 30);
         assertEquals("Thirty | All", t.puntos() );
         t.set(40, 40);
-        assertEquals("Forty | All", t.puntos() );
+        assertEquals("Deuce", t.puntos() );
     }
     //Probar los puntos de los jugadores
     @Test
@@ -58,19 +58,19 @@ class TennisTest {
         t.setp1(-40, 1);
         assertEquals("Error | Error", t.puntos() );
     }
-    //Probar el marcador de ventaja
+    //Probar el marcador de ventaja, se ve desde el punto de vista de p1
     @Test 
     public void Advantage(){
         Tennis t=new Tennis(40,40);
         t.setp1(41,1);
-        assertEquals("Ad-out", t.puntos() );
-        t.servir(1);
         assertEquals("Ad-in", t.puntos() );
+        t.servir(1);
+        assertEquals("Gana 1", t.puntos() );
         t.set(40,40);
         assertEquals("Deuce", t.puntos() );
-        t.setp1(41,1);
+        t.setp1(41,2);
         assertEquals("Ad-out", t.puntos() );
         t.servir(2);
-        assertEquals("Ad-in", t.puntos() );
+        assertEquals("Gana 2", t.puntos() );
     }
 }
