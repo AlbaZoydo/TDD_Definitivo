@@ -29,7 +29,7 @@ public class Suma {
                 return "Error: simbolo no valido";
             }
             //Si la cadena termina con el simbolo, devuelve un error
-            else if (cadena.endsWith(simbolo)){
+            else if (cadena.endsWith(simbolo)||cadena.endsWith(simbolo2)){
                 return "Error: cadena no valida";
             }
             //Detectar la cadena dividida por el simbolo y sumar los numeros
