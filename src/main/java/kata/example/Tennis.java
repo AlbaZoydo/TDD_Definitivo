@@ -25,8 +25,7 @@ public class Tennis{
                 
             case 40:
                 return cuarenta;
-            case 41:
-                return "E";
+            
             default:
                 return "Error";
         }
@@ -38,8 +37,14 @@ public class Tennis{
         punto2=puntaje(p2);
 
         if(p1==p2){
-            return punto+" | All";
+            if(p1==40){
+                return "Deuce | All";
+            }
+            else{
+                return punto+" | All";
+            }
         }
+        
         else{
             return "";
         }
