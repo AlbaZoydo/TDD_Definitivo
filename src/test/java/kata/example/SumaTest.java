@@ -7,7 +7,7 @@ public class SumaTest {
     @Test 
     public void coma(){
         Suma s=new Suma("1,2,3");
-        assertEquals(6, s.suma());
+        assertEquals("6", s.suma());
         s.set("2,3,4,5,6,7");
         assertEquals("27", s.suma());
         
@@ -29,7 +29,7 @@ public class SumaTest {
         Suma s=new Suma("//;\n1;2;3");
         assertEquals("6", s.suma());
         s.set("//g\n1g2g3g4g5g6g7g8g9g");
-        assertEquals("45", s.suma());
+        assertEquals("Error: Cadena no valida", s.suma());
         
     }
     @Test 

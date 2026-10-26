@@ -10,7 +10,7 @@ public class Suma {
     public void set(String cad){
         cadena=cad;
     }
-    public int suma(){
+    public String suma(){
         total=0;
         simbolo=",";
         if(!cadena.isEmpty()){
@@ -19,7 +19,10 @@ public class Suma {
                 cadena=cadena.substring(4);
             }
             if(simbolo.matches("[0-9]+")){
-                total=-1;
+                return "Error: simbolo no valido";
+            }
+            else if (cadena.endsWith(simbolo)){
+                return "Error: cadena no valida";
             }
             else{
                 String cachito[]=cadena.split(simbolo);
@@ -28,6 +31,6 @@ public class Suma {
                 }
             }   
         }
-        return total;
+        return String.valueOf(total);
     }
 }
