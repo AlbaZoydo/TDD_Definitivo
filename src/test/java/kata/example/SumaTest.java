@@ -34,4 +34,10 @@ public class SumaTest {
         assertEquals(6, s.suma());
         
     }
+    @Test 
+    public void Otro_marcador2(){
+        Suma s=new Suma("//g\n1g2g3g4g5g6g7g8g9g");
+        assertEquals(45, s.suma());
+        
+    }
 }
