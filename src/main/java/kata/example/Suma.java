@@ -7,8 +7,12 @@ public class Suma {
     public Suma(String cad){
         cadena=cad;
     }
-    
+    public void set(String cad){
+        cadena=cad;
+    }
     public int suma(){
+        total=0;
+        simbolo=",";
         if(!cadena.isEmpty()){
             if(cadena.startsWith("//")){
                 simbolo=cadena.substring(2,3);
