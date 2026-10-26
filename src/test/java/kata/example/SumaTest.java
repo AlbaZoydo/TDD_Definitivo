@@ -28,4 +28,10 @@ public class SumaTest {
         assertEquals(6, s.suma());
 
     }
+    @Test 
+    public void Otro_marcador(){
+        Suma s=new Suma("//;\n1;2;3");
+        assertEquals(6, s.suma());
+        
+    }
 }
