@@ -36,7 +36,7 @@ public class Tennis{
         p1=puntaje;
         p2=puntaje2;
     }
-    
+
     public String puntos(){
         punto= puntaje(p1);
         punto2=puntaje(p2);
@@ -51,7 +51,7 @@ public class Tennis{
         }
         
         else{
-            return "";
+            return punto+" | "+punto2;
         }
     }
 
