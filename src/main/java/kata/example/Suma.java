@@ -21,8 +21,11 @@ public class Suma {
         if(!cadena.isEmpty()){
             //Si la cadena empieza con //, el simbolo delimitador cambia
             if(cadena.startsWith("//")){
-                simbolo=cadena.substring(2,3);
-                cadena=cadena.substring(4);
+                //Si el simbolo es de mas de un caracter
+                int pos=cadena.indexOf(simbolo2);
+                
+                simbolo=cadena.substring(2,pos);
+                cadena=cadena.substring(pos+1);
             }
             //Si el simbolo es un numero, devuelve un error
             if(simbolo.matches("[0-9]+")){
