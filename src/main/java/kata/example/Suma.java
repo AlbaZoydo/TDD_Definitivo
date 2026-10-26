@@ -37,14 +37,21 @@ public class Suma {
             }
             //Detectar la cadena dividida por el simbolo y sumar los numeros
             else{
-                String cachito[]=cadena.split(simbolo + "|" + simbolo2);
+                String cachito[]=cadena.split(simbolo + "|" + simbolo2 + "|"+",");
                 for(int i=0; i<cachito.length; i++){
                     //Si hay dos simbolos juntos, devuelve un error
                     if(cachito[i].isEmpty()){
+                        char s=cadena.substring(i+2).charAt(0);
                         if(simbolo.equals(",")){
-                            return "Error: Number expected but " + simbolo + " found at position " + i*(simbolo.length()+1);
+                            return "Error: Number expected but " + cadena.substring(i+1).charAt(0) + " found at position " + i*(simbolo.length()+1);
                         }
-                        return "Error: cadena no valida";
+                        else if (s=='\n'){
+                        
+                            return "Error: '" + simbolo + "' expected but '\\n' found at position " + i*(simbolo.length()+1);
+                        }
+                        else{
+                            return "Error: '" + simbolo + "' expected but '" + cadena.substring(i+3).charAt(0) + "' found at position " + i*(simbolo.length()+1);
+                        }
                     }
                     total+=Float.parseFloat(cachito[i]);
                 }

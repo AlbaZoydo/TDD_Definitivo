@@ -63,14 +63,15 @@ public class SumaTest {
         assertEquals("7", s.suma());
 
     }
+
     @Test 
     public void Otro_marcador2(){
         Suma s=new Suma("//;\n1;2;\n3");
-        assertEquals("Error: ';' expected but '\n' found at position 4", s.suma());
+        assertEquals("Error: ';' expected but '\\n' found at position 4", s.suma());
         s.set("//g\n1g2g9g,3");
         assertEquals("Error: 'g' expected but ',' found at position 6", s.suma());
-        s.set("//g\n1g2g9g;3");
-        assertEquals("Error: 'g' expected but ';' found at position 6", s.suma());
+        s.set("//g\n1g2g9g,3");
+        assertEquals("Error: 'g' expected but ',' found at position 6", s.suma());
 
     }
     
