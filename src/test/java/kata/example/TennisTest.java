@@ -53,6 +53,9 @@ class TennisTest {
     public void conflictos(){
         Tennis t=new Tennis(5,0);
         assertEquals("Error | Love", t.puntos() );
-        
+        t.setp1(100, 2);
+        assertEquals("Error | Error", t.puntos() );
+        t.setp1(-40, 1);
+        assertEquals("Error | Error", t.puntos() );
     }
 }
