@@ -25,6 +25,8 @@ public class SumaTest {
     public void comasjuntas(){
         Suma s=new Suma("1,,2,3");
         assertEquals("Error: cadena no valida", s.suma());
+        s.set("1,\n2,3");
+        assertEquals("Error: cadena no valida", s.suma());
 
     }
     //Suma de numeros separados por saltos de linea
@@ -32,7 +34,8 @@ public class SumaTest {
     public void saltador(){
         Suma s=new Suma("1\n2\n3");
         assertEquals("6", s.suma());
-
+        s.set("1,2\n3");
+        assertEquals("6", s.suma());
     }
     //Error: no puede terminar con el marcador
     @Test 
