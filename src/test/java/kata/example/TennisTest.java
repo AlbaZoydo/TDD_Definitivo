@@ -73,4 +73,14 @@ class TennisTest {
         t.servir(2);
         assertEquals("Gana 2", t.puntos() );
     }
+    //Ganador sin empate
+    @Test
+    public void ganador(){
+    Tennis t=new Tennis(40,30);
+    setp1(41,1);
+    assertEquals("Gana 1", t.puntos() );
+    set(30);
+    setp1(41,2);
+    assertEquals("Gana 2", t.puntos() );
+    }
 }
