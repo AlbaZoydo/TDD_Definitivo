@@ -20,6 +20,13 @@ public class SumaTest {
         assertEquals("0", s.suma());
 
     }
+    //2 delimitadores juntos
+    @Test 
+    public void comasjuntas(){
+        Suma s=new Suma("1,,2,3");
+        assertEquals("Error: cadena no valida", s.suma());
+
+    }
     //Error: no puede terminar con el marcador
     @Test 
     public void comafinal(){
