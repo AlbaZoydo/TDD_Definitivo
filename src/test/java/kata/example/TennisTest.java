@@ -48,4 +48,11 @@ class TennisTest {
         t.setp1(40,2);
         assertEquals("Fifteen | Forty", t.puntos());
     }
+    //Casos que no se pueden dar en un partido de tenis
+    @Test 
+    public void conflictos(){
+        Tennis t=new Tennis(5,0);
+        assertEquals("Error | Love", t.puntos() );
+        
+    }
 }
