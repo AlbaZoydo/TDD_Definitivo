@@ -89,5 +89,13 @@ public class SumaTest {
         s.set("//;\n-1;2;-3");
         assertEquals("Error: Negatives not allowed: -1, -3", s.suma());
     }
+    //Multiple error
+    @Test
+    public void multiple_error(){
+        Suma s=new Suma("//g\n-1g2g9g,-3");
+        assertEquals("Error: Negatives not allowed: -1, -3 \nError: 'g' expected but ',' found at position 6", s.suma());
+        s.set("//;\n1;2;\n3");
+        assertEquals("Error: Negatives not allowed: -1, -3 \nError: ';' expected but '\\n' found at position 4", s.suma());
+    }
     
 }
