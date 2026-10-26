@@ -15,4 +15,11 @@ class TennisTest {
         assertEquals("Thirty | All", t.puntos() );
         t.set(40, 40);
         assertEquals("Forty | All", t.puntos() );
+    }
+
+    @Test
+    public void solo1(){
+        Tennis t=new Tennis(15,30);
+        assertEquals("Fifteen | Thirty", t.puntos() );
+    }
 }
