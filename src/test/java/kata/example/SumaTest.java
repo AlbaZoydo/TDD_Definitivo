@@ -10,4 +10,16 @@ public class SumaTest {
         assertEquals(6, s.suma());
         
     }
+    @Test 
+    public void coma2(){
+        Suma s=new Suma("2,3,4,5,6,7");
+        assertEquals(27, s.suma());
+        
+    }
+    @Test 
+    public void vacio(){
+        Suma s=new Suma("");
+        assertEquals(0, s.suma());
+
+    }
 }
