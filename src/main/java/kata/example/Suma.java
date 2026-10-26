@@ -4,6 +4,7 @@ public class Suma {
     private int total=0;
     private String cadena="";
     private String simbolo=",";
+    private String simbolo2="\n";
 
     public Suma(String cad){
         cadena=cad;
@@ -33,7 +34,7 @@ public class Suma {
             }
             //Detectar la cadena dividida por el simbolo y sumar los numeros
             else{
-                String cachito[]=cadena.split(simbolo);
+                String cachito[]=cadena.split(simbolo + "|" + simbolo2);
                 for(int i=0; i<cachito.length; i++){
                     //Si hay dos simbolos juntos, devuelve un error
                     if(cachito[i].isEmpty()){
