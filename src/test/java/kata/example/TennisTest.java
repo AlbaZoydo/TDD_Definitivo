@@ -16,10 +16,22 @@ class TennisTest {
         t.set(40, 40);
         assertEquals("Forty | All", t.puntos() );
     }
+    @Test
+    public void solo(){
+        Tennis t=new Tennis(0,30);
+        assertEquals("Love | Thirty", t.puntos() );
+    }
 
+    //Metodo para probar los puntos de los jugadores
     @Test
     public void solo1(){
-        Tennis t=new Tennis(15,30);
-        assertEquals("Fifteen | Thirty", t.puntos() );
+        Tennis t=new Tennis(0,30);
+        assertEquals("Love | Thirty", t.puntos() );
+        t.setp1(15);
+        assertEquals("Fifteen | Thirty", t.puntos());
+        t.setp1(30);
+        assertEquals("Thirty | All", t.puntos() );
+        t.setp1(40);
+        assertEquals("Forty | Thirty", t.puntos());
     }
 }
