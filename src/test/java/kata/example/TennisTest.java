@@ -10,11 +10,11 @@ class TennisTest {
         Tennis t=new Tennis(0,0);
         assertEquals("Love | All", t.puntos() );
         //Meter puntos a los jugadores mediante el metodo set en Tennis
-        t.set(15, 15);
+        t.set(15);
         assertEquals("Fifteen | All", t.puntos() );
-        t.set(30, 30);
+        t.set(30);
         assertEquals("Thirty | All", t.puntos() );
-        t.set(40, 40);
+        t.set(40);
         assertEquals("Deuce", t.puntos() );
     }
     //Probar los puntos de los jugadores
@@ -66,7 +66,7 @@ class TennisTest {
         assertEquals("Ad-in", t.puntos() );
         t.servir(1);
         assertEquals("Gana 1", t.puntos() );
-        t.set(40,40);
+        t.set(40);
         assertEquals("Deuce", t.puntos() );
         t.setp1(41,2);
         assertEquals("Ad-out", t.puntos() );
@@ -77,9 +77,9 @@ class TennisTest {
     @Test
     public void ganador(){
     Tennis t=new Tennis(40,30);
-    t.set(41,1);
+    t.setp1(41,1);
     assertEquals("Gana 1", t.puntos() );
-    t.set(30,30);
+    t.set(30);
     t.setp1(41,2);
     assertEquals("Gana 2", t.puntos() );
     }

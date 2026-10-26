@@ -51,9 +51,10 @@ public class Tennis{
 
 
     //pone el puntaje de ambos jugadores
-    public void set(int puntaje, int puntaje2){
-        p1=puntaje;
-        p2=puntaje2;
+    public void set(int puntaje){
+            p1=puntaje;
+            p2=puntaje;
+
     }
     //Pone el puntaje de un jugador
     public void setp1(int puntaje, int player){
