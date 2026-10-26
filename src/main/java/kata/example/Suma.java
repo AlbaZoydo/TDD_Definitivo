@@ -1,7 +1,7 @@
 package kata.example;
 
 public class Suma {
-    private int total=0;
+    private float total=0;
     private String cadena="";
     private String simbolo=",";
     private String simbolo2="\n";
@@ -43,9 +43,12 @@ public class Suma {
                     if(cachito[i].isEmpty()){
                         return "Error: cadena no valida";
                     }
-                    total+=Integer.parseInt(cachito[i]);
+                    total+=Float.parseFloat(cachito[i]);
                 }
             }   
+        }
+        if (total == (int) total) {
+            return String.valueOf((int) total);
         }
         return String.valueOf(total);
     }
