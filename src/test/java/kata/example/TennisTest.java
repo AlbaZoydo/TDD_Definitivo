@@ -9,23 +9,14 @@ class TennisTest {
         Tennis t=new Tennis(0,0);
         assertEquals("Love | All", t.puntos() );
         
-    }
-    @Test
-    public void iguales15(){
-        Tennis t=new Tennis(15,15);
+        Tennis t1=new Tennis(15,15);
         assertEquals("Fifteen | All", t.puntos() );
         
-    }
-    @Test
-    public void iguales30(){
-        Tennis t=new Tennis(30,30);
-        assertEquals("Thirty | All", t.puntos() );
+        Tennis t2=new Tennis(30,30);
+        assertEquals("Thirty | All", t2.puntos() );
         
-    }
-    @Test
-    public void iguales40(){
-        Tennis t=new Tennis(40, 40);
-        assertEquals("Deuce | All", t.puntos() );
+        Tennis t3=new Tennis(40, 40);
+        assertEquals("Deuce", t3.puntos() );
         
     }
 }

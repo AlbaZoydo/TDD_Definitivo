@@ -38,7 +38,7 @@ public class Tennis{
 
         if(p1==p2){
             if(p1==40){
-                return "Deuce | All";
+                return "Deuce";
             }
             else{
                 return punto+" | All";
