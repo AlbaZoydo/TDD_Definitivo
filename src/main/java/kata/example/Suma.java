@@ -5,7 +5,8 @@ public class Suma {
     private String cadena="";
     private String simbolo=",";
     private String simbolo2="\n";
-
+    private boolean error=false;
+    private String msg="";
     public Suma(String cad){
         cadena=cad;
     }
@@ -13,10 +14,47 @@ public class Suma {
     public void set(String cad){
         cadena=cad;
     }
+    //Detectar el multiple error
+    public void error(){
+        error=true;
+    }
+    //Negativos
+    public String Negativos(String[] cachito){
+        error();
+        String negativos="";
+        for(int j=0; j<cachito.length; j++){
+            if(cachito[j].matches("-[0-9]+")){
+                negativos+=cachito[j]+", ";
+            }
+        }
+        return "Error: Negatives not allowed: " + negativos.substring(0,negativos.length()-2);
+    }
+    
+    //El simbolo no se puede dar
+    public String simboloError(){
+        error();
+        return "Error: simbolo no valido";
+        
+    }
+    //La cadena no es valida
+    public String cadenaError(){
+        error();
+        return "Error: cadena no valida";
+        
+    }     
+    //Para multiple error hay que separarlo
+    public void multiple(){
+        if(!msg.isEmpty()){
+        msg+='\n';}
+
+    }
     public String suma(){
         //Reiniciar los valores por si se vuelve a llamar al metodo suma
+        error=false;
+        msg="";
         total=0;
         simbolo=",";
+        
         //Si la cadena no esta vacia, se procede a sumar
         if(!cadena.isEmpty()){
             //Si la cadena empieza con //, el simbolo delimitador cambia
@@ -28,49 +66,63 @@ public class Suma {
                 cadena=cadena.substring(pos+1);
             }
             //Si el simbolo es un numero, devuelve un error
-            if(simbolo.matches("[0-9]+")){
-                return "Error: simbolo no valido";
+            
+            if(cadena.endsWith(simbolo)||cadena.endsWith(simbolo2)){
+                msg+=cadenaError();
             }
+            
             //Si la cadena termina con el simbolo, devuelve un error
-            else if (cadena.endsWith(simbolo)||cadena.endsWith(simbolo2)){
-                return "Error: cadena no valida";
+            if(simbolo.matches("[0-9]+")){
+                multiple();
+                msg+= simboloError();
             }
             //Detectar la cadena dividida por el simbolo y sumar los numeros
             else{
                 String cachito[]=cadena.split(simbolo + "|" + simbolo2 + "|"+",");
-                for(int i=0; i<cachito.length; i++){
-                    //Si hay dos simbolos juntos, devuelve un error
-                    if(cachito[i].isEmpty()){
-                        char s=cadena.substring(i+2).charAt(0);
-                        if(simbolo.equals(",")){
-                            return "Error: Number expected but " + cadena.substring(i+1).charAt(0) + " found at position " + i*(simbolo.length()+1);
-                        }
-                        else if (s=='\n'){
+                for (int i = 0; i < cachito.length; i++) {
+
+                    // Detectar elementos vacíos antes de convertirlos
+                    if (cachito[i].isEmpty()) {
+                        error();
+
+                        int pos = i * (simbolo.length() + 1);
                         
-                            return "Error: '" + simbolo + "' expected but '\\n' found at position " + i*(simbolo.length()+1);
+                        if (simbolo.equals(",")) {                           
+                            multiple();
+                            msg += "Error: Number expected but "+cadena.charAt(pos)+ " found at position "+ pos;
+                        } 
+                        else if (cadena.charAt(pos)=='\n') {
+                            multiple();
+                            msg += "Error: '" + simbolo+"' expected but '\\n' found at position "+ pos;
                         }
-                        else{
-                            return "Error: '" + simbolo + "' expected but '" + cadena.substring(i+3).charAt(0) + "' found at position " + i*(simbolo.length()+1);
+                        else {
+                            multiple();
+                            msg += "Error: '" + simbolo+"' expected but '"+cadena.charAt(pos)+"' found at position "+ pos;
                         }
+
+                        continue;
                     }
-                    //Si hay numeros negativos, devuelve un error con todos los numeros negativos encontrados
                     
-                    if (cachito[i].matches("-[0-9]+")){
-                        String negativos="";
-                        for(int j=0; j<cachito.length; j++){
-                            if(cachito[j].matches("-[0-9]+")){
-                                negativos+=cachito[j]+", ";
-                            }
-                        }
-                        return "Error: Negatives not allowed: " + negativos.substring(0,negativos.length()-2);
+                    // Detectar negativos
+                    if (!error && Float.parseFloat(cachito[i]) < 0) {
+                        multiple();
+                        msg += Negativos(cachito);
                     }
-                    total+=Float.parseFloat(cachito[i]);
+
+                    // Sumar solo si el elemento es válido
+                    total += Float.parseFloat(cachito[i]);
                 }
+
             }   
         }
+        if(error){
+            return msg;
+        }
+        else{
         if (total == (int) total) {
             return String.valueOf((int) total);
         }
         return String.valueOf(total);
+        }
     }
 }
