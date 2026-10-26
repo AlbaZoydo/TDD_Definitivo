@@ -32,9 +32,9 @@ public class SumaTest {
     @Test 
     public void comasjuntas(){
         Suma s=new Suma("1,,2,3");
-        assertEquals("Error: cadena no valida", s.suma());
+        assertEquals("Error: Number expected but , found at position 2", s.suma());
         s.set("1,\n2,3");
-        assertEquals("Error: cadena no valida", s.suma());
+        assertEquals("Error: Number expected but \n found at position 2", s.suma());
 
     }
     //Suma de numeros separados por saltos de linea
