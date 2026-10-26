@@ -40,7 +40,7 @@ public class SumaTest {
         Suma s=new Suma("//;\n1;2;3");
         assertEquals("6", s.suma());
         s.set("//g\n1g2g3g4g5g6g7g8g9g");
-        assertEquals("Error: Cadena no valida", s.suma());
+        assertEquals("Error: cadena no valida", s.suma());
         
     }
     //Marcador no valido

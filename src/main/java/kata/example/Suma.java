@@ -35,6 +35,10 @@ public class Suma {
             else{
                 String cachito[]=cadena.split(simbolo);
                 for(int i=0; i<cachito.length; i++){
+                    //Si hay dos simbolos juntos, devuelve un error
+                    if(cachito[i].isEmpty()){
+                        return "Error: cadena no valida";
+                    }
                     total+=Integer.parseInt(cachito[i]);
                 }
             }   
