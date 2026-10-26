@@ -59,16 +59,21 @@ public class SumaTest {
         assertEquals("6", s.suma());
         s.set("//g\n1g2g3g4g5g6g7g8g9g");
         assertEquals("Error: cadena no valida", s.suma());
-        
-        
-    }
-    //Marcador de mas de un caracter
-    @Test 
-    public void Otro_marcador2(){
-        Suma s=new Suma("//set\n1set2set3set1");
+        s.set("//set\n1set2set3set1");
         assertEquals("7", s.suma());
 
     }
+    @Test 
+    public void Otro_marcador2(){
+        Suma s=new Suma("//;\n1;2;\n3");
+        assertEquals("Error: ';' expected but '\n' found at position 4", s.suma());
+        s.set("//g\n1g2g9g,3");
+        assertEquals("Error: 'g' expected but ',' found at position 6", s.suma());
+        s.set("//g\n1g2g9g;3");
+        assertEquals("Error: 'g' expected but ';' found at position 6", s.suma());
+
+    }
+    
     //Marcador no valido
     @Test 
     public void Otro_marcador3(){
