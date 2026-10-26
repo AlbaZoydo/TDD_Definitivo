@@ -40,4 +40,9 @@ public class SumaTest {
         assertEquals(45, s.suma());
         
     }
+    @Test 
+    public void Otro_marcador3(){
+        Suma s=new Suma("//2\n12223");
+        assertEquals("Error", s.suma());
+    }
 }
