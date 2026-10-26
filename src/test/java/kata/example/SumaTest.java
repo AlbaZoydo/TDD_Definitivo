@@ -52,6 +52,14 @@ public class SumaTest {
         s.set("//g\n1g2g3g4g5g6g7g8g9g");
         assertEquals("Error: cadena no valida", s.suma());
         
+        
+    }
+    //Marcador de mas de un caracter
+    @Test 
+    public void Otro_marcador2(){
+        Suma s=new Suma("//set\n1set2set3set1");
+        assertEquals("7", s.suma());
+
     }
     //Marcador no valido
     @Test 
