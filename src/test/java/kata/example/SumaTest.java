@@ -22,4 +22,10 @@ public class SumaTest {
         assertEquals(0, s.suma());
 
     }
+    @Test 
+    public void comafinal(){
+        Suma s=new Suma("1,2,3,");
+        assertEquals(6, s.suma());
+
+    }
 }
