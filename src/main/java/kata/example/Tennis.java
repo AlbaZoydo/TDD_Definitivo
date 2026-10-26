@@ -31,6 +31,11 @@ public class Tennis{
         }
 
     }
+
+    public void set(int puntaje, int puntaje2){
+        p1=puntaje;
+        p2=puntaje2;
+    }
     
     public String puntos(){
         punto= puntaje(p1);
