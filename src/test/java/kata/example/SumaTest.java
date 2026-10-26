@@ -13,6 +13,14 @@ public class SumaTest {
         assertEquals("27", s.suma());
         
     }
+    //Sema de entero y decimal
+    @Test
+    public void coma2(){
+        Suma s=new Suma("1,2,3.5");
+        assertEquals("6.5", s.suma());
+        s.set("1,2,3,4.3");
+        assertEquals("10.3", s.suma());
+    }
     //mensaje vacio
     @Test 
     public void vacio(){
