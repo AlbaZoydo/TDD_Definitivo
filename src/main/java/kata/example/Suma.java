@@ -7,17 +7,22 @@ public class Suma {
     public Suma(String cad){
         cadena=cad;
     }
-
+    
     public int suma(){
         if(!cadena.isEmpty()){
             if(cadena.startsWith("//")){
                 simbolo=cadena.substring(2,3);
                 cadena=cadena.substring(4);
             }
-            String cachito[]=cadena.split(simbolo);
-            for(int i=0; i<cachito.length; i++){
-                total+=Integer.parseInt(cachito[i]);
+            if(simbolo.matches("[0-9]+")){
+                total=-1;
             }
+            else{
+                String cachito[]=cadena.split(simbolo);
+                for(int i=0; i<cachito.length; i++){
+                    total+=Integer.parseInt(cachito[i]);
+                }
+            }   
         }
         return total;
     }

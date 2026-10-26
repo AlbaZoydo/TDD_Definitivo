@@ -43,6 +43,6 @@ public class SumaTest {
     @Test 
     public void Otro_marcador3(){
         Suma s=new Suma("//2\n12223");
-        assertEquals("Error", s.suma());
+        assertEquals(-1, s.suma());
     }
 }
