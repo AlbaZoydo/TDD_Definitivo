@@ -81,5 +81,13 @@ public class SumaTest {
         Suma s=new Suma("//2\n12223");
         assertEquals("Error: simbolo no valido", s.suma());
     }
+    //Numeros negativos no validos
+    @Test
+    public void negativos(){
+        Suma s=new Suma("-1,2,-3");
+        assertEquals("Error: Negatives not allowed: -1, -3", s.suma());
+        s.set("//;\n-1;2;-3");
+        assertEquals("Error: Negatives not allowed: -1, -3", s.suma());
+    }
     
 }

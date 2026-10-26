@@ -53,6 +53,17 @@ public class Suma {
                             return "Error: '" + simbolo + "' expected but '" + cadena.substring(i+3).charAt(0) + "' found at position " + i*(simbolo.length()+1);
                         }
                     }
+                    //Si hay numeros negativos, devuelve un error con todos los numeros negativos encontrados
+                    
+                    if (cachito[i].matches("-[0-9]+")){
+                        String negativos="";
+                        for(int j=0; j<cachito.length; j++){
+                            if(cachito[j].matches("-[0-9]+")){
+                                negativos+=cachito[j]+", ";
+                            }
+                        }
+                        return "Error: Negatives not allowed: " + negativos.substring(0,negativos.length()-2);
+                    }
                     total+=Float.parseFloat(cachito[i]);
                 }
             }   
