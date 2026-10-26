@@ -8,11 +8,7 @@ public class SumaTest {
     public void coma(){
         Suma s=new Suma("1,2,3");
         assertEquals(6, s.suma());
-        
-    }
-    @Test 
-    public void coma2(){
-        Suma s=new Suma("2,3,4,5,6,7");
+        s.set("2,3,4,5,6,7");
         assertEquals(27, s.suma());
         
     }
@@ -32,11 +28,7 @@ public class SumaTest {
     public void Otro_marcador(){
         Suma s=new Suma("//;\n1;2;3");
         assertEquals(6, s.suma());
-        
-    }
-    @Test 
-    public void Otro_marcador2(){
-        Suma s=new Suma("//g\n1g2g3g4g5g6g7g8g9g");
+        s.set("//g\n1g2g3g4g5g6g7g8g9g");
         assertEquals(45, s.suma());
         
     }
