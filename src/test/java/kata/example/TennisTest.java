@@ -58,4 +58,19 @@ class TennisTest {
         t.setp1(-40, 1);
         assertEquals("Error | Error", t.puntos() );
     }
+    //Probar el marcador de ventaja
+    @Test 
+    public void Advantage(){
+        Tennis t=new Tennis(40,40);
+        t.setp1(41,1);
+        assertEquals("Ad-out", t.puntos() );
+        t.servir(1);
+        assertEquals("Ad-in", t.puntos() );
+        t.set(40,40);
+        assertEquals("Deuce", t.puntos() );
+        t.setp1(41,1);
+        assertEquals("Ad-out", t.puntos() );
+        t.servir(2);
+        assertEquals("Ad-in", t.puntos() );
+    }
 }
