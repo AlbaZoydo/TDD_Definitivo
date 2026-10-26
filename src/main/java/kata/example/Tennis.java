@@ -13,7 +13,7 @@ public class Tennis{
         this.p1=p1;
         this.p2=p2;
     }
-    
+    //Que puntuacion tiene cada jugador en string
     public String puntaje(int persona){
         switch(persona){
             case 0:
@@ -31,14 +31,21 @@ public class Tennis{
         }
 
     }
-
+    //pone el puntaje de ambos jugadores
     public void set(int puntaje, int puntaje2){
         p1=puntaje;
         p2=puntaje2;
     }
-    public void setp1(int puntaje){
-        p1=puntaje;
+    //Pone el puntaje de un jugador
+    public void setp1(int puntaje, int player){
+        if(player==1){
+            p1=puntaje;
+        }
+        else{
+            p2=puntaje;
+        }
     }
+    //Metodo principal
     public String puntos(){
         punto= puntaje(p1);
         punto2=puntaje(p2);
