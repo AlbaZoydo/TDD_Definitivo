@@ -38,7 +38,7 @@ public class Tennis{
         server=quien;
     }
     public String advantage(int p){
-        if(server==p){
+        if(server==p || (p2!=40 && p1!=40)){
             return "Gana "+p;
         }
         else if (p1==41){
@@ -66,6 +66,7 @@ public class Tennis{
     }
     //Metodo principal
     public String puntos(){
+        
         if(p1==41){
             return advantage(1);
         }
