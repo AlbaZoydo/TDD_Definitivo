@@ -27,11 +27,22 @@ class TennisTest {
     public void solo1(){
         Tennis t=new Tennis(0,30);
         assertEquals("Love | Thirty", t.puntos() );
-        t.setp1(15);
+        t.setp1(15, 1);
         assertEquals("Fifteen | Thirty", t.puntos());
-        t.setp1(30);
+        t.setp1(30,1);
         assertEquals("Thirty | All", t.puntos() );
-        t.setp1(40);
+        t.setp1(40,1);
         assertEquals("Forty | Thirty", t.puntos());
+    }
+    @Test
+    public void solo2(){
+        Tennis t=new Tennis(15,0);
+        assertEquals("Fifteen | Love", t.puntos() );
+        t.setp1(15, 1);
+        assertEquals("Fifteen | All", t.puntos());
+        t.setp1(30,1);
+        assertEquals("Fifteen | Thirty", t.puntos() );
+        t.setp1(40,1);
+        assertEquals("Fifteen | Forty", t.puntos());
     }
 }
