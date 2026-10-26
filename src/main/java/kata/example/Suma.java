@@ -41,6 +41,9 @@ public class Suma {
                 for(int i=0; i<cachito.length; i++){
                     //Si hay dos simbolos juntos, devuelve un error
                     if(cachito[i].isEmpty()){
+                        if(simbolo.equals(",")){
+                            return "Error: Number expected but " + simbolo + " found at position " + i*(simbolo.length()+1);
+                        }
                         return "Error: cadena no valida";
                     }
                     total+=Float.parseFloat(cachito[i]);
