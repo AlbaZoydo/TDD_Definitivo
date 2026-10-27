@@ -16,15 +16,15 @@ public class MultiplicarTest {
     @Test
     public void multiplicar2(){
         Suma s=new Suma("1,2,3.5");
-        assertEquals("6.5", s.multiplica());
+        assertEquals("7", s.multiplica());
         s.set("1,2,3,4.3");
-        assertEquals("10.3", s.multiplica());
+        assertEquals("25.8", s.multiplica());
     }
     //mensaje vacio
     @Test 
     public void multiplicarvacio(){
         Suma s=new Suma("");
-        assertEquals("0", s.multiplica());
+        assertEquals("1", s.multiplica());
 
     }
     //2 delimitadores juntos
@@ -59,7 +59,7 @@ public class MultiplicarTest {
         s.set("//g\n1g2g3g4g5g6g7g8g9g");
         assertEquals("Error: cadena no valida", s.multiplica());
         s.set("//set\n1set2set3set1");
-        assertEquals("7", s.multiplica());
+        assertEquals("6", s.multiplica());
 
     }
 
