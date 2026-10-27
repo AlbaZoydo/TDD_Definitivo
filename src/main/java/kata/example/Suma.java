@@ -200,7 +200,7 @@ public String multiplica(){
         if (total == (int) total) {
             return String.valueOf((int) total);
         }
-        return String.valueOf(total);
+        return String.format("%.1f", total);
         }
     }
 }
