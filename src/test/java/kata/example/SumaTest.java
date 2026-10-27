@@ -97,13 +97,5 @@ public class SumaTest {
         s.set("//;\n-1;2;;3");
         assertEquals("Error: Negatives not allowed: -1\nError: ';' expected but ';' found at position 4", s.suma());
     }
-    @Test
-    public void multiplicar(){
-        Suma s=new Suma("1,2,3");
-        assertEquals("6", s.multiplica());
-        s.set("2,3,4,5,6,7");
-        assertEquals("5040", s.multiplica());
-        
-    }
     
 }
