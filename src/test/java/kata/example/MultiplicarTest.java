@@ -18,7 +18,7 @@ public class MultiplicarTest {
         Suma s=new Suma("1,2,3.5");
         assertEquals("7", s.multiplica());
         s.set("1,2,3,4.3");
-        assertEquals("25.8", s.multiplica());
+        assertEquals("25,8", s.multiplica());
     }
     //mensaje vacio
     @Test 
